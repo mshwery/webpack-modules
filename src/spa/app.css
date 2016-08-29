@@ -1,0 +1,19 @@
+header {
+  background: #f2f2f2;
+}
+
+footer {
+  background: #454545;
+  color: white;
+}
+
+main {
+  background: lightcyan;
+}
+
+header,
+footer,
+main {
+  padding: 1rem;
+  margin: 1rem;
+}

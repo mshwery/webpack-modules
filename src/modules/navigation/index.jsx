@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const Navigation = () => (
-  <div>
+  <header>
     Navigation
-  </div>
+  </header>
 );
 
 function mount(elementID = 'mount') {

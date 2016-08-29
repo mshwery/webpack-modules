@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 const Footer = () => (
-  <div>
+  <footer>
     Footer
-  </div>
+  </footer>
 );
 
 function mount(elementID = 'mount') {

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Webpack code splitting by module</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.1/react-dom.min.js"></script>
+</head>
+<body>
+  <div id='navigation'></div>
+  <div id='root'></div>
+  <div id='footer'></div>
+  
+  <!-- Each module chunk – in this case all modules [footer, navigation] are being loaded -->
+  <!-- depends on React, ReactDOM as externals -->
+  <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+  <script src='..<%= htmlWebpackPlugin.files.chunks[chunk].entry %>'></script>
+  <% } %>
+
+  <!-- single page app entry point (so happens to be bundled with webpack -->
+  <!-- depends on React, ReactDOM as externals -->
+  <script src="../build/spa.js"></script>
+  
+  <script>
+    /**
+     * Mount each module, since they are exposed as libs
+     * Self-mounting would be even better in most cases but that requires
+     * a mechanism to pass in data that's not via instantiation in the DOM
+     * e.g. as query params to a REST endpoint that returns html (and can 
+     * interpolate passed in data on the server – like OpenComponents)
+     */
+    Modules.navigation.default.mount('navigation');
+    Modules.footer.default.mount('footer');
+  </script>
+</body>
+</html>
