@@ -1,7 +1,7 @@
 {
-  "name": "fulcrum-modules",
+  "name": "webpack-modules",
   "version": "0.0.0",
-  "description": "Monorepo for managing Fulcrum modules",
+  "description": "Monorepo for managing modules",
   "private": true,
   "scripts": {
     "start": "npm run clean && npm run build && npm run open",
